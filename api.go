@@ -647,10 +647,12 @@ func (a *api) registerDocsRoute() {
 		csp = []string{
 			"default-src 'none'",
 			"base-uri 'none'",
+			"object-src 'self' blob:",
+			"frame-src 'self' blob:",
+			"img-src 'self' blob:",
 			"connect-src 'self'",
 			"form-action 'none'",
 			"frame-ancestors 'none'",
-			"sandbox allow-same-origin allow-scripts allow-popups allow-popups-to-escape-sandbox",
 			"script-src 'unsafe-eval' https://unpkg.com/@scalar/api-reference@1.44.20/dist/browser/standalone.js", // TODO: Somehow drop 'unsafe-eval'
 			"style-src 'unsafe-inline'", // TODO: Somehow drop 'unsafe-inline'
 		}
